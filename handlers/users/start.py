@@ -4,7 +4,7 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import Command
 from aiogram.dispatcher.filters.builtin import CommandStart
 
-from keyboards.default.buttons import menu
+from keyboards.default.buttons import menu_main
 from loader import dp, db
 
 
@@ -17,15 +17,22 @@ async def bot_start(message: types.Message):
         print(err)
 
     await message.answer('You are in main menu. '
-                         'Chose type of essay you want to send',
-                         reply_markup=menu)
+                         'Choose type of essay you want to send',
+                         reply_markup=menu_main)
 
 
 @dp.message_handler(text='⬅back', state="*")
 async def go_back_to_post_menu(message: types.Message, state: FSMContext):
     await state.reset_state()
+    await message.answer('Choose type of IELTS task',
+                         reply_markup=menu_main)
+
+
+@dp.message_handler(text='⬅bаck', state="*")
+async def go_back_to_menu(message: types.Message, state: FSMContext):
+    await state.reset_state()
     await message.answer('You are in main menu',
-                         reply_markup=menu)
+                         reply_markup=menu_main)
 
 
 @dp.message_handler(Command(['restart', 'help']), state="*")

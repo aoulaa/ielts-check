@@ -15,7 +15,7 @@ from states.st import Data
 @dp.callback_query_handler(text="admin_photo")
 async def send_to_admin(call: CallbackQuery):
     await call.answer(cache_time=60)
-    await call.message.send_copy(group_username[0], reply_markup=reply_photo)
+    await call.message.copy_to(group_username[0], reply_markup=reply_photo)
 
     await call.message.delete_reply_markup()
     await call.message.answer('Your task has been sent to admins')
@@ -26,8 +26,7 @@ async def cancel(call: CallbackQuery):
     await call.answer(cache_time=20)
 
     await call.message.delete_reply_markup()
-    await call.message.answer('You cancelled post. '
-                              'you can send another post',
+    await call.message.answer('You cancelled the post.❗\n you can send another post',
                               reply_markup=academ_tasks_button)
 
 
@@ -65,12 +64,12 @@ async def send_comment(message: types.Message, state: FSMContext):
 async def send_to_admin(call: CallbackQuery):
     await call.answer(cache_time=60)
 
-    await call.message.send_copy(group_username[0], reply_markup=reply_1)
+    await call.message.copy_to(group_username[0], reply_markup=reply_1)
     await call.message.delete_reply_markup()
-    await call.message.answer('Your essay has been sent to admins wait for confirmation.')
+    await call.message.answer('Your essay has been sent to admins wait for confirmation.✅')
 
 
-@dp.message_handler(text='General IELTS')
+@dp.message_handler(text='General IELTS📑')
 async def general_ielts(message: types.Message):
     await message.answer('choose type of task',
                          reply_markup=general_tasks_button)

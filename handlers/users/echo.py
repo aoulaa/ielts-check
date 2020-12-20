@@ -6,5 +6,5 @@ from loader import dp
 
 @dp.message_handler()
 async def bot_echo(message: types.Message):
-    text = hbold('выключено режим ехо: ')
-    await message.answer(f'{text}\n\n{message.text}')
+    text = hbold('выключено режим ехо:')
+    await message.answer(f'{text}\n\n{message.text}\n\nif there is a problem push /start')
