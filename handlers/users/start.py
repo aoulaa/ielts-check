@@ -41,3 +41,9 @@ async def bot_start(message: types.Message, state: FSMContext):
     await message.answer('if something went wrong press /start')
 
 
+@dp.message_handler(commands=['getuser'])
+async def number(message: types.message):
+    count = db.count_users()[0]
+    await message.answer(f'каличство усеров: {count}')
+
+

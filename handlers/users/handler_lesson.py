@@ -1,5 +1,6 @@
 
 from aiogram import types
+from aiogram.types import ContentType
 
 from data.db_dict import ex_dict, book_dict
 
@@ -30,9 +31,9 @@ async def send_books(message: types.message):
     book_data = book_dict[message.text]
     await message.answer_document(document=book_data[0], caption=book_data[1])
 
-
+#
 # @dp.message_handler(content_types=ContentType.ANY)
 # async def catch_pdf(message: types.message):
 #
-#     pdf = message.document.file_id
+#     pdf = message.video.file_id
 #     await message.answer(f'copy_id: {pdf}')
