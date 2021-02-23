@@ -21,6 +21,7 @@ post_text = InlineKeyboardMarkup(
         ],
 
     ], resize_keyboard=True)
+
 reply_photo = InlineKeyboardMarkup(
     row_width=2,
 
@@ -30,7 +31,6 @@ reply_photo = InlineKeyboardMarkup(
             InlineKeyboardButton(text="Cancel❌", callback_data='cancel_admin')
         ],
     ], resize_keyboard=True)
-
 
 reply_1 = InlineKeyboardMarkup(
     row_width=2,

@@ -26,7 +26,6 @@ academ_tasks_button = ReplyKeyboardMarkup(
         [KeyboardButton(text='Task 1'), KeyboardButton(text='Task 2')],
         [KeyboardButton(text='⬅back')]
 
-
     ],
     one_time_keyboard=True,
     resize_keyboard=True
@@ -77,13 +76,5 @@ books_button = ReplyKeyboardMarkup(
     one_time_keyboard=True,
     resize_keyboard=True
 )
-
-
-
-
-
-
-
-
 
 
